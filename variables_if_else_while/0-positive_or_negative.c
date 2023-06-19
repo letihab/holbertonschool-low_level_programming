@@ -2,17 +2,18 @@
 #include <stdio.h>
 #include <time.h>
 /**
- *main - print random number if is negative positive or zero
+ *main - Entry point
  *
- *Return is positive if the number is >0
- *Return is zero if the number equal 0
- *Return is negative if the number <0
+ *Description: return the value of the random number
+ *
+ *Return: Always 0 (success)
 */
 int main(void)
 {
 int n;
 srand(time(0));
 n = rand() - RAND_MAX / 2;
+printf("%d \n", n);
 if (n > 0)
 {
 printf("the number is positive \n");
