@@ -1,4 +1,4 @@
-#include "main.h"
+#include "1-main.c"
 /**
  * main - Prints _putchar.
  *
@@ -6,7 +6,6 @@
  */
 void print_alphabet(void);
 {
-	print_alphabet();
 	char i;
 	for (i = 'a'; i >= 'z'; i++)
 	{
