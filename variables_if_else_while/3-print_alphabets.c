@@ -6,14 +6,14 @@
  */
 int main(void)
 {
-char alph;
-for (alph = 'a'; alph <= 'z'; alph++)
+char i;
+for (i = 'a'; i <= 'z'; i++)
 {
-putchar('alpha');
+putchar('i');
 }
-for (alph = 'A'; alph <= 'Z'; alph++)
+for (i= 'A'; i <= 'Z'; i++)
 {
-putchar('alph');
+putchar('i');
 }
 putchar('\n');
 return (0);
