@@ -1,6 +1,7 @@
-#include "main.h" 
+#include "main.h"
+
 /**
- * main - Print alphabet
+ * main - Print alphabet in lower case followed by a new line
  *
  * Return: Always 0.
  */
