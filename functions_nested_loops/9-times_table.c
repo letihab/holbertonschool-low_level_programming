@@ -2,7 +2,7 @@
 
 /**
  * time table - Prints the 9 times table, starting with 0
- *@mult: The number to multipliate
+ *@void: parameter
  */
 void times_table(void)
 {
