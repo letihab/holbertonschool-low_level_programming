@@ -3,7 +3,7 @@
 /**
  * cap_string - Write a function that capitalizes all words of a string.
  *
- * @entry: This is the input string
+ * @s: This is the input string
  *
  * Return: String capitalized
  */
