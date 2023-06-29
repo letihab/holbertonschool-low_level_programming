@@ -7,29 +7,24 @@
  *
  * Return: String capitalized
  */
-char *cap_string(char *entry)
+char *cap_string(char *s)
 {
-	int conversion, index, count;
+	char *r = s;
+	int i;
+	char a[] = " \t\n,.!?\"(){}";
+	int cap = 1;
 
-	char chars[] = {' ', ',', ';', '.', '!',
-			 '?', '"', '(', ')', '{', '}',  '\t', '\n', '\0'};
-	conversion = 32;
-
-	for (index = 0; entry[index] != '\0'; index++)
+	while (*s)
 	{
-		if (entry[index] >= index && entry[index] <= 'z')
+		if (cap && *s >= 'a' && *s <= 'z')
+			*s -= 32;
+		cap = 0;
+		for (i = 0; i < 12; i++)
 		{
-			entry[index] =  entry[index] - conversion;
+			if (*s == a[i])
+				cap = 1;
 		}
-		conversion = 0;
-		for (count = 0; chars[count] != '\0'; count++)
-		{
-			if (chars[count] == entry[index])
-			{
-				conversion = 32;
-				break;
-			}
-		}
+		s++;
 	}
-	return (entry);
+	return (r);
 }
