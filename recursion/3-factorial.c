@@ -16,4 +16,6 @@ int factorial(int n)
 	number = number * (number - 1);
 
 	factorial(n +1);
+
+	return (0);
 }
