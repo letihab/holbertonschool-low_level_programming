@@ -9,7 +9,7 @@ int _sqrt_recursion(int n)
 {
 	int sqrtroot = 0;
 
-	if (sqrtroot == n * n) && (n < sqrtroot))
+	if (sqrtroot == n * n && n < sqrtroot))
 	{
 		return (sqrtroot = _sqrt_recursion(n));
 	}
@@ -17,7 +17,5 @@ int _sqrt_recursion(int n)
 	{
 		return (-1);
 	}
-	else if (sqrtroot == 0 || sqrtroot == 1)
-		return (sqrtroot);
 	return (0);
 }
