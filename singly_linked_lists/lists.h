@@ -10,6 +10,7 @@
  */
 typedef struct list_t
 {
+	char *name;
 	int n;
 	struct list_t *next;
 } list_t;
