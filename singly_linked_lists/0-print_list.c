@@ -19,6 +19,7 @@ size_t print_list(const list_t *h)
 		printf("%d\n", h->n);
 		h = h->next;
 		i++;
+	}
 
 	return (i);
 }
