@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "lists.h"
 
 /**
@@ -8,34 +11,40 @@
  */
 list_t *add_node(list_t **head, const char *str)
 {
-	list_t *new;
+        list_t *new;
 
-	if (!(*head))
-	{
-		*head = new_node(str);
-		return (*head);
-	}
+        if (!str)
+                return (NULL);
 
-	new = new_node(str));
-	new->next = *head;
-	*head = new;
-	return (*head);
+        new = new_node(str);
+        if (!new)
+                return (NULL);
+
+        new->next = *head;
+        *head = new;
+        return (new);
 }
 
 /**
- * new_node - creates a new listint_t node.
- * @n: number to place inside the node.
+ * new_node - creates a new list_t node.
+ * @str: string to place inside the node.
  *
  * Return: pointer to the new node.
  */
-static list_t *new_node(const char *str)
+list_t *new_node(const char *str)
 {
-	list_t *new;
+        list_t *new;
 
-	new = malloc(sizeof(list_t));
-	if (!new)
-		return (NULL);
-	new->str = str;
-	new->next = NULL;
-	return (new);
+        new = malloc(sizeof(list_t));
+        if (!new)
+                return (NULL);
+
+        new->str = strdup(str);
+        if (!(new->str)) {
+                free(new);
+                return (NULL);
+        }
+
+        new->next = NULL;
+        return (new);
 }
