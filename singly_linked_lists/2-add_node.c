@@ -12,11 +12,11 @@ list_t *add_node(list_t **head, const char *str)
 
 	if (!(*head))
 	{
-		*head = new_node(n);
+		*head = new_node(str);
 		return (*head);
 	}
 
-	new = new_node(n);
+	new = new_node(str);
 	new->next = *head;
 	*head = new;
 	return (*head);
@@ -28,15 +28,14 @@ list_t *add_node(list_t **head, const char *str)
  *
  * Return: pointer to the new node.
  */
-static list_t *new_node(const int n)
+static list_t *new_node(const char *str)
 {
 	list_t *new;
 
 	new = malloc(sizeof(list_t));
 	if (!new)
 		return (NULL);
-	new->n = n;
+	new->str = str;
 	new->next = NULL;
 	return (new);
 }
-
