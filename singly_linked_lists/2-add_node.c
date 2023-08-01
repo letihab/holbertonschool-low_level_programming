@@ -11,41 +11,16 @@
  */
 list_t *add_node(list_t **head, const char *str)
 {
-        list_t *new;
+	list_t *new;
+	new = malloc(sizeof(list_t));
 
-        if (!str)
-                return (NULL);
+	if (new == NULL)
+		return (NULL);
+	new->str = strdup(str);
 
-        new = new_node(str);
-        if (!new)
-                return (NULL);
+	new->len = _strlen(str);
+	new->next = *head;
+	*head = new;
 
-        new->next = *head;
-        *head = new;
-        return (new);
-}
-
-/**
- * new_node - creates a new list_t node.
- * @str: string to place inside the node.
- *
- * Return: pointer to the new node.
- */
-list_t *new_node(const char *str)
-{
-        list_t *new;
-
-        new = malloc(sizeof(list_t));
-        if (!new)
-                return (NULL);
-
-        new->name = strdup(str);
-        if (!(new->name)) {
-                free(new);
-                return (NULL);
-        }
-
-        new->n = 0;
-	new->next = NULL;
-        return (new);
+	return (new);
 }
