@@ -4,11 +4,6 @@
 #include "lists.h"
 
 /**
- *new_node -function that add new node
- */
-list_t *new_node(const char *str);
-
-/**
  *add_node - add a new node at the beginning of a list_t
  *@head: the first node
  *@str: parameter of a function
