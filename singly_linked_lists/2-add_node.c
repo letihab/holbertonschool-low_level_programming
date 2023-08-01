@@ -4,6 +4,11 @@
 #include "lists.h"
 
 /**
+ *new_node -function that add new node
+ */
+list_t *new_node(const char *str);
+
+/**
  *add_node - add a new node at the beginning of a list_t
  *@head: the first node
  *@str: parameter of a function
@@ -39,12 +44,13 @@ list_t *new_node(const char *str)
         if (!new)
                 return (NULL);
 
-        new->str = strdup(str);
-        if (!(new->str)) {
+        new->name = strdup(str);
+        if (!(new->name)) {
                 free(new);
                 return (NULL);
         }
 
-        new->next = NULL;
+        new->n = 0;
+	new->next = NULL;
         return (new);
 }
