@@ -11,14 +11,14 @@
 size_t print_list(const list_t *h)
 {
 	size_t i = 0;
-	const struct list_t *current = h;
 
-	if (!h)
-		return (0);
 	while (h)
 	{
-		printf("[%s] %d\n", current->name, current->n);
-		current = current->next;
+		if (!h->str)
+			printf("[0] (nil)\n");
+		else
+			printf("[%i] %s\n", h->len, h->str);
+		h = h->next;
 		i++;
 	}
 

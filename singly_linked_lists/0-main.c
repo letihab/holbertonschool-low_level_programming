@@ -4,41 +4,37 @@
 #include "lists.h"
 
 /**
- * main - check the code for Holberton School students.
+ * main - check the code
  *
  * Return: Always 0.
  */
 int main(void)
 {
     list_t *head;
-    list_t *first, *second;
-    list_t hello = {("World"), 5, NULL};
+    list_t *new;
+    list_t hello = {"World", 5, NULL};
     size_t n;
 
     head = &hello;
-    first = malloc(sizeof(list_t));
-    if (first == NULL)
+    new = malloc(sizeof(list_t));
+    if (new == NULL)
     {
         printf("Error\n");
         return (1);
     }
-    second = malloc(sizeof(list_t));
-    if (second == NULL)
-    {
-        printf("Error\n");
-        return (1);
-    }
-    first->str = strdup("Hello");
-    first->len = strlen(first->str);
-    first->next = head;
-    head = first;
-    second->str = strdup("WATER!");
-    second->len = strlen(second->str);
-    second->next = head;
-    head = second;
+    new->str = strdup("Hello");
+    new->len = 5;
+    new->next = head;
+    head = new;
     n = print_list(head);
     printf("-> %lu elements\n", n);
-    free(first->str);
-    free(first);
+
+    printf("\n");
+    free(new->str);
+    new->str = NULL;
+    n = print_list(head);
+    printf("-> %lu elements\n", n);
+
+    free(new);
     return (0);
 }
