@@ -4,8 +4,9 @@
 #include <stddef.h>
 
 /**
- *struct list_s singly linked list
- *@n:integer
+ *struct list_t - singly linked list
+ *@len:integer
+ *@str: print string
  *@next: points to the next node
  */
 typedef struct list_t
