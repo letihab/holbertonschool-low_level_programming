@@ -1,43 +1,44 @@
 #include "lists.h"
 
 /**
- * insert_dnodeint_at_index - inserts a new node in a linked list,
- * at a given position
- * @h: pointer to the first node in the list
- * @idx: index where the new node is added
- * @n: data to insert in the new node
- *
- * Return: pointer to the new node, or NULL
+ * insert_dnodeint_at_index - inserts a new node at a given position.
+ * @h: double pointer to list.
+ * @idx: index of inserting position.
+ * @n: data for new node insertion.
+ * Return: the address of the new node.
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	unsigned int i;
-	dlistint_t *new;
-	dlistint_t *last = *h;
+	unsigned int i = 0;
+	dlistint_t *news = malloc(sizeof(dlistint_t)), *last = *h;
 
-	new = malloc(sizeof(dlistint_t));
-	if (!new || !h)
-		return (NULL);
-	new->n = n;
-	new->next = NULL;
-
-	if (idx == 0)
+	if (news)
 	{
-		new->next = *h;
-		*h = new;
-		return (new);
+		news->n = n;
+		if (idx == 0)
+		{
+			if (*h)
+			{
+				news->next = *h;
+				(*h)->prev = news;
+			}
+			*h = news;
+			return (news);
+		}
+		while (i < idx - 1 && last)
+		{
+			last = last->next;
+			i++;
+		}
+		if (last)
+		{
+			if (last->next)
+				last->next->prev = news;
+			news->next = last->next;
+			news->prev = last;
+			last->next = news;
+			return (news);
+		}
 	}
-
-	for (i = 0; last && i < idx -1; i++)
-		last = last->next;
-
-       	if (!last || i < idx - 1)
-	{
-		free(new);
-		return (NULL);
-	}
-	new->next = last->next;
-	last->next = new;
-
-	return (new);
+	return (NULL);
 }
