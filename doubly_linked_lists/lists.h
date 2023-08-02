@@ -9,10 +9,10 @@
  *@n: integer of the structure
  *@next: point to the next node
  */
-typedef struct dlistint_s
+typedef struct dlistint_t
 {
 	int n;
-	struct dlistint_s *next;
+	struct dlistint_t *next;
 }dlistint_t;
 
 size_t print_dlistint(const dlistint_t *h);
