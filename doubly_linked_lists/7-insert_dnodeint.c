@@ -3,7 +3,7 @@
 /**
  * insert_dnodeint_at_index - inserts a new node in a linked list,
  * at a given position
- * @head: pointer to the first node in the list
+ * @h: pointer to the first node in the list
  * @idx: index where the new node is added
  * @n: data to insert in the new node
  *
@@ -13,10 +13,10 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	unsigned int i;
 	dlistint_t *new;
-	dlistint_t *last = *head;
+	dlistint_t *last = *h;
 
 	new = malloc(sizeof(dlistint_t));
-	if (!new || !head)
+	if (!new || !h)
 		return (NULL);
 	new->n = n;
 	new->next = NULL;
@@ -24,7 +24,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	if (idx == 0)
 	{
 		new->next = *head;
-		*head = new;
+		*h = new;
 		return (new);
 	}
 
@@ -32,8 +32,8 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	{
 		if (i == idx - 1)
 		{
-			new->next = temp->next;
-			temp->next = new;
+			new->next = last->next;
+			last->next = new;
 			return (new);
 		}
 		else
