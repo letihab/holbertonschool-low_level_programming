@@ -7,14 +7,12 @@
 /**
  *struct dlistint_t - doubly linked lists
  *@n: integer of the structure
- *@prev: point to the previous node
  *@next: point to the next node
  */
-typedef struct dlistint_t
+typedef struct dlistint_s
 {
 	int n;
-	struct dlistint_t *prev;
-	struct dlistint_t *next;
+	struct dlistint_s *next;
 }dlistint_t;
 
 size_t print_dlistint(const dlistint_t *h);
