@@ -2,8 +2,7 @@
 #include "main.h"
 
 /**
- * binary_to_uint - Function that converts a binary number to an unsigned int.
- * Prototype: unsigned int binary_to_uint(const char *b);
+ * binary_to_uint - Function that converts a binary number to an unsigned int
  * @b: is pointing to a string of 0 and 1 chars
  * Return: the converted number, or 0 if
  * -> there is one or more chars in the string b that is not 0 or 1
@@ -24,5 +23,5 @@ unsigned int binary_to_uint(const char *b)
 			n = n | 1;
 		b++;
 	}
-	return (value);
+	return (n);
 }
