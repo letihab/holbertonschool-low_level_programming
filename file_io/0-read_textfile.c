@@ -7,12 +7,12 @@
  *@letters: number of letters to be read
  *Return: actual number of letters it should read
  */
-size_t read_textfile(const char *filename, size_t letters)
+ssize_t read_textfile(const char *filename, size_t letters)
 {
 	char *buf;
-	size_t rd;
-	size_t wrte;
-	size_t alfile;
+	ssize_t rd;
+	ssize_t wrte;
+	ssize_t alfile;
 
 	rd = open(filename, O_RDONLY);
 
