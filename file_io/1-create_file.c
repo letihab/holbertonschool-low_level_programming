@@ -8,8 +8,7 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-	int rd, wrte;
-	int len = 0;
+	int rd, wrte, len;
 
 	if (filename == NULL)
 		return (-1);
@@ -18,7 +17,7 @@ int create_file(const char *filename, char *text_content)
 		for (len = 0; text_content[len]; len++);
 	}
 	rd = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
-	wrte = write(rd,len,text_content)
+	wrte = write(rd,text_content,len)
 
 		if (rd == -1 || wrte == -1)
 			return (-1);
