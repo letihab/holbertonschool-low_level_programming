@@ -23,6 +23,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	wrte = write(STDOUT_FILENO, buf, alfile);
 
 	free(buf);
-	close (rd);
-	return(wrte);
+	close(rd);
+	return (wrte);
 }
