@@ -92,8 +92,7 @@ int main(int argc, char *argv[])
 		r = read(from, buf, 1024);
 		to = open(argv[2], O_WRONLY | O_APPEND);
 
-	}
-	while (r > 0);
+	}while (r > 0);
 
 	free(buf);
 	close_file(from);
