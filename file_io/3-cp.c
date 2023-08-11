@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 char *create_buffer(char *file);
-void close_file(int fd);
+void close_file(int rd);
 
 /**
  * create_buffer - Allocates 1024 bytes for a buffer.
@@ -31,7 +31,7 @@ char *create_buffer(char *file)
  * close_file - Closes file descriptors.
  * @rd: The file descriptor to be closed.
  */
-void close_file(int fd)
+void close_file(int rd)
 {
 	int c;
 
@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
 
 	buf = create_buffer(argv[2]);
 	from = open(argv[1], O_RDONLY);
-	r = read(from, buffer, 1024);
+	r = read(from, buf, 1024);
 	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	do {
