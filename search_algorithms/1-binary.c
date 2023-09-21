@@ -59,5 +59,5 @@ int binary_search_index(int *array, size_t left, size_t right, int value)
  */
 int binary_search(int *array, size_t size, int value)
 {
-  return (binary_search_index(array, 0, size - 1, value));
-}  
+return (binary_search_index(array, 0, size - 1, value));
+}
