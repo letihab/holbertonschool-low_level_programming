@@ -20,14 +20,18 @@ if (array == NULL)
 {
 return (-1);
 }
-for (i = 0; i < size; i++)
+for (i = 0; (i < size ) && (array); i++)
 {
-if (array[i] == value)
-{
-printf("Comparing %d to %d\n", array[i], value);
-return (i);
-}
-printf("Comparing %d to %d\n", array[i], value);
+    if (*array(i + 1) == value)
+    {
+    printf("Value checked array[%d] = [%d]\n", (int)i, *(array + i));
+
+    return (i);
+    }
+    else
+    {
+        printf("Value checked array[%d] = [%d]\n", (int)i, *(array + i));
+    }
 }
 
 return (-1);
