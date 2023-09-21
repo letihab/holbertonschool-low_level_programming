@@ -3,8 +3,8 @@
 
 /**
  * linear_search - function that performs a sequential search in an array of
- *integers, comparing each value of the array with the search value and
- *displaying each comparison.
+ * integers, comparing each value of the array with the search value and
+ * displaying each comparison.
  *
  * @array: pointer to the first element of array
  * @size: size of array
@@ -14,25 +14,22 @@
  */
 int linear_search(int *array, size_t size, int value)
 {
-size_t i;
+    size_t i;
 
-if (array == NULL)
-{
-return (-1);
-}
-for (i = 0; (i < size ) && (array); i++)
-{
-    if (*array(i + 1) == value)
+    if (array == NULL)
     {
-    printf("Value checked array[%d] = [%d]\n", (int)i, *(array + i));
-
-    return (i);
+        return (-1);
     }
-    else
+    
+    for (i = 0; i < size; i++)
     {
-        printf("Value checked array[%d] = [%d]\n", (int)i, *(array + i));
-    }
-}
+        printf("Value checked array[%ld] = [%d]\n", i, array[i]);
 
-return (-1);
+        if (array[i] == value)
+        {
+            return (i);
+        }
+    }
+
+    return (-1);
 }
