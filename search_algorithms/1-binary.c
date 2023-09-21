@@ -2,6 +2,52 @@
 #include "search_algos.h"
 
 /**
+ * print_array - Prints the contents of an array.
+ * @array: The source of the array to print.
+ * @left: The left index of the array.
+ * @right: The right index of the array.
+ */
+void print_array(int *array, size_t left, size_t right)
+{
+	size_t i;
+
+	if (array)
+	{
+		printf("Searching in array: ");
+		for (i = left; i < left + (right - left + 1); i++)
+			printf("%d%s", *(array + i), i < left + (right - left) ? ", " : "\n");
+	}
+}
+
+/**
+ * binary_search_index - Searches a value in a sorted array using \
+ * a binary search.
+ * @array: The array to search in.
+ * @left: The left index of the array.
+ * @right: The right index of the array.
+ * @value: The value to look for.
+ *
+ * Return: The first index of the value in the array, otherwise -1.
+ */
+int binary_search_index(int *array, size_t left, size_t right, int value)
+{
+	size_t m;
+
+	if (!array)
+		return (-1);
+	print_array(array, left, right);
+	m = left + ((right - left) / 2);
+	if (left == right)
+		return (*(array + m) == value ? (int)m : -1);
+	if (value < *(array + m))
+		return (binary_search_index(array, left, m - 1, value));
+	else if (value == *(array + m))
+		return ((int)m);
+	else
+		return (binary_search_index(array, m + 1, right, value));
+}
+
+/**
  * binary_search - function that searches for a value in a sorted array of
  * integers using the Binary search algorithm.
  *
@@ -13,34 +59,5 @@
  */
 int binary_search(int *array, size_t size, int value)
 {
-    if (array == NULL)
-        return (-1);
-
-    int left = 0;
-    int right = size - 1;
-
-    while (left <= right)
-    {
-        int mid = left + (right - left) / 2;
-
-        printf("Searching in array: ");
-        for (int i = left; i <= right; i++)
-        {
-            printf("%d", array[i]);
-            if (i < right)
-                printf(", ");
-            else
-                printf("\n");
-        }
-
-        if (array[mid] == value)
-            return (mid);
-
-        if (array[mid] < value)
-            left = mid + 1;
-        else
-            right = mid - 1;
-    }
-
-    return (-1); 
-}
+  return (binary_search_index(array, 0, size - 1, value));
+}  
